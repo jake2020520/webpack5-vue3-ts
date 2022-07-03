@@ -1,9 +1,9 @@
 import { createApp } from 'vue';
 import App from './App';
-// import router from './router';
-// import store from './store';
-// import ElementPlus from 'element-plus';
-// import debounce from 'lodash/debounce';
+import router from './router';
+import store from './store';
+import ElementPlus from 'element-plus';
+import debounce from 'lodash/debounce';
 import 'element-plus/dist/index.css';
 import './common.css';
 import './main.less';
@@ -28,7 +28,7 @@ import './main.less';
 // });
 
 // createApp(App).use(store).use(router).use(ElementPlus).mount('#app');
-createApp(App).mount('#app');
+createApp(App).use(store).use(router).use(ElementPlus).mount('#app');
 
 // const aa = 'aa';
 // console.log(aa);

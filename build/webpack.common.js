@@ -3,9 +3,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
-const CliPluginTypescript = require('@vue/cli-plugin-typescript');
 const webpack = require('webpack');
-console.log('process.env.NODE_ENV=:  ', process.env.NODE_ENV);
+console.log('process.env.NODE_ENV=:  ', process.env.NODE_ENV, path.resolve(__dirname, '../public'));
 // const NODE_ENV = process.env.NODE_ENV // 打印环境变量
 module.exports = function (mode) {
   return {
@@ -143,7 +142,7 @@ module.exports = function (mode) {
       })
     ],
     devServer: {
-      // contentBase: path.resolve(__dirname, 'public'), // 静态文件目录
+      static: path.resolve(__dirname, '../public'), // 静态文件目录
       compress: true, //是否启动压缩 gzip
       port: 8080, // 端口号
       open: true // 是否自动打开浏览器
