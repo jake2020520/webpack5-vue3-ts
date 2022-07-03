@@ -20,12 +20,13 @@ module.exports = {
     ],
     // tsc会自动加上profill吗？答案是不会。
     [
-      '@babel/preset-typescript'
-      // {// 这个打开，会报错，目前不知为何
-      //   allExtensions: true // 支持所有文件扩展名，否则在vue文件中使用ts会报错
-      // }
-    ],
-    '@vue/cli-plugin-babel/preset'
+      '@babel/preset-typescript',
+      {
+        // 这个打开，会报错，目前不知为何
+        // allExtensions: true // 支持所有文件扩展名，否则在vue文件中使用ts会报错
+      }
+    ]
+    // '@vue/cli-plugin-babel/preset'
   ],
   plugins: [
     [
@@ -34,6 +35,6 @@ module.exports = {
         corejs: 3
       }
     ],
-    '@vue/babel-plugin-jsx'
+    ['@vue/babel-plugin-jsx']
   ]
 };

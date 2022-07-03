@@ -28,7 +28,7 @@ import './main.less';
 // });
 
 // createApp(App).use(store).use(router).use(ElementPlus).mount('#app');
-createApp(App).use(store).use(router).use(ElementPlus).mount('#app');
+createApp(App).use(store).use(ElementPlus).mount('#app');
 
 // const aa = 'aa';
 // console.log(aa);

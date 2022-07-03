@@ -5,12 +5,12 @@ interface Config {
 export default defineComponent({
   name: 'App-tsx',
   setup(props, { slots, attrs, emit }) {
-    const state = reactive({ name: 'jake---' });
-    const aa: Config = { name: 'xusu' };
+    const state = reactive({ name: 'jake' });
+    const aa = { name: 'xusu' };
     return () => {
       return (
         <div class="content">
-          <router-link to="/login"></router-link>
+          <router-link to="/login">{state.name}</router-link>
           <router-view></router-view>
         </div>
       );

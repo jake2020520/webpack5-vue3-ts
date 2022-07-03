@@ -77,7 +77,7 @@ module.exports = function (mode) {
         //   ]
         // },
         {
-          test: /\.(t|j)s$/,
+          test: /\.(js|ts|tsx)$/,
           exclude: /node_modules/,
           use: [
             {
@@ -91,11 +91,6 @@ module.exports = function (mode) {
             //   }
             // }
           ]
-        },
-        {
-          test: /\.tsx$/,
-          exclude: /(node_modules|dist)/,
-          use: ['vue-loader', 'vue-tsx-loader']
         },
         // 打包图片等
         {
@@ -142,7 +137,7 @@ module.exports = function (mode) {
       })
     ],
     devServer: {
-      static: path.resolve(__dirname, '../public'), // 静态文件目录
+      // static: path.resolve(__dirname, '../dist'), // 静态文件目录
       compress: true, //是否启动压缩 gzip
       port: 8080, // 端口号
       open: true // 是否自动打开浏览器
