@@ -1,0 +1,53 @@
+.tran-two {
+  color: burlywood;
+  cursor: pointer;
+  width: 50px;
+  transition: all 5s;
+  background-color: salmon;
+}
+.tran-two:hover {
+  width: 150px;
+  background-color: royalblue;
+}
+
+.contain {
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 125px;
+  width: 210px;
+  height: 300px;
+  background: wheat;
+  margin-top: 300px;
+}
+
+.donut {
+  position: absolute;
+  -webkit-animation: turn 2s infinite;
+  animation: turn 2s infinite;
+  background: url('./assets/123.jpg');
+  background-size: contain;
+  height: 50px;
+  width: 50px;
+}
+
+.donut-front {
+  z-index: 5;
+  backface-visibility: hidden;
+  background: url('./assets/321.jpg');
+  background-size: contain;
+  height: 50px;
+  width: 50px;
+  top: 25px;
+}
+
+@-webkit-keyframes turn {
+  to {
+    -webkit-transform: rotateY(360deg);
+  }
+}
+
+@keyframes turn {
+  to {
+    transform: rotateY(360deg);
+  }
+}
