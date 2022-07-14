@@ -73,5 +73,8 @@
       "not dead",
       "not op_mini all"
     ]
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint"
   }
 }

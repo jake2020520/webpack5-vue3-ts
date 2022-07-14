@@ -1,4 +1,4 @@
-import Vue from 'vue';
+// import Vue from 'vue';
 import Vuex from 'vuex';
 import common, { State as CommonState } from './common';
 export interface VuexRootState {
