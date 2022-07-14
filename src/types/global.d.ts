@@ -26,8 +26,10 @@ declare module 'vue/types/vue' {
       name: string;
       [index: string]: any;
     };
+    // eslint-disable-next-line no-unused-vars
     aopUse: (plugin: any) => void;
   }
+  // eslint-disable-next-line no-unused-vars
   interface Vue {
     $socket: VueSocket;
   }

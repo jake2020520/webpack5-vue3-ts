@@ -3,7 +3,9 @@ import { ref, Ref, computed } from "vue";
 type CountResultProps = {
   count: Ref<number>;
   multiple: Ref<number>;
+  // eslint-disable-next-line no-unused-vars
   increase: (delta?: number) => void;
+  // eslint-disable-next-line no-unused-vars
   decrease: (delta?: number) => void;
 };
 
