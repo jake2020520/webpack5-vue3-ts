@@ -12,7 +12,7 @@ export * from './types';
 const module: Module<State, VuexRootState> = {
   namespaced: true,
   state: {
-    weatherData: [{ id: 1, imgUrl: '' }]
+    todoData: { userId: 1, id: 1, title: '', completed: true }
   },
   actions,
   getters,

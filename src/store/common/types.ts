@@ -1,3 +1,10 @@
 export interface State {
-  weatherData: [{ id: number; imgUrl: string }];
+  todoData: TodoProps;
+}
+
+export interface TodoProps {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
 }

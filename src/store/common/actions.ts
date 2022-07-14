@@ -7,8 +7,8 @@ import { common } from '@/service';
  * vip
  * @param store
  */
-export async function getWeather(store: ActionContext<State, VuexRootState>) {
-  const data = await common.getWeatherApi();
+export async function getTodoData(store: ActionContext<State, VuexRootState>) {
+  const data = await common.getTodoApi();
   store.commit('setWeather', data);
   return data;
 }

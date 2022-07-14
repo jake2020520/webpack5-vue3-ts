@@ -1,21 +1,11 @@
-import { defineComponent, ref, computed, watchEffect, watch, onMounted } from 'vue';
+import { defineComponent, ref, computed, watchEffect, watch, onMounted, reactive } from 'vue';
 // import { useRouter } from "vue-router";
 import axios from 'axios';
-
+import { useStore } from 'vuex';
 import useURLLoader from '../../hooks/useURLLoader';
 
-interface PostProps {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-}
-interface TodoProps {
-  userId: number;
-  id: number;
-  title: string;
-  completed: boolean;
-}
+import { PostProps } from './type';
+import { TodoProps } from '@/store/common/types';
 
 export default defineComponent({
   name: 'App-tsx',
@@ -24,13 +14,27 @@ export default defineComponent({
     const node = ref<null | HTMLElement>(null);
     // const route = useRouter();
     // const login = () => {
-    //   console.log('-home-');
     //   // route.replace('./main');
     // };
+    const store = useStore();
     let count = ref(1);
+    let data = reactive<TodoProps>({
+      userId: 1,
+      id: 1,
+      title: '',
+      completed: true
+    });
     const double = computed(() => {
       return count.value + 2;
     });
+
+    const getData = async () => {
+      await store.dispatch('common/getTodoData');
+      // data = store.state.common.todoData;
+      data = store.getters['common/getterTodoData'];
+      console.log('store.getters ', data);
+    };
+    getData();
 
     const addCount = () => {
       count.value++;
@@ -64,7 +68,7 @@ export default defineComponent({
     );
 
     onMounted(() => {
-      console.log('-login-onMounted--');
+      console.log('onMounted:');
     });
 
     /*
@@ -74,7 +78,7 @@ export default defineComponent({
      *
      */
     watch(count, (newValue, oldValue) => {
-      console.log('-login-watch--', newValue, oldValue);
+      console.log('watch: ', newValue, oldValue);
     });
 
     return () => {
@@ -84,6 +88,7 @@ export default defineComponent({
           <div ref={node}>{double.value}_1</div>
           {todoData.result ? <div>{todoData.result.title}</div> : <div>todo-loading...</div>}
           {postData.result ? <div>{postData.result.title}</div> : <div>post-loading...</div>}
+          <div>store: {data.title}</div>
         </div>
       );
     };

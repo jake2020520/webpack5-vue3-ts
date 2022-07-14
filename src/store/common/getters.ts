@@ -4,6 +4,6 @@ import { State } from './types';
  *
  * @param state
  */
-export function getterWeatherData(state: State) {
-  return state.weatherData || [];
+export function getterTodoData(state: State) {
+  return state.todoData || [];
 }
